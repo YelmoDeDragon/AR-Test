@@ -51,7 +51,7 @@ class App{
         
         const self = this;
         
-        loader.load( '../../assets/hdr/venice_sunset_1k.hdr', ( texture ) => {
+        loader.load( 'assets/hdr/venice_sunset_1k.hdr', ( texture ) => {
           const envMap = pmremGenerator.fromEquirectangular( texture ).texture;
           pmremGenerator.dispose();
 
@@ -64,7 +64,7 @@ class App{
     
     loadGLTF(){
         const self = this;
-        const loader = new GLTFLoader().setPath('../../assets/');
+        const loader = new GLTFLoader().setPath('assets/');
         loader.load(
             'office-chair.glb',
             function(gltf){
