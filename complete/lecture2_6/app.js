@@ -64,9 +64,9 @@ class App{
     
     loadGLTF(){
         const self = this;
-        const loader = new GLTFLoader().setPath('https://yelmodedragon.github.io/AR-Test/assets/');
+        const loader = new GLTFLoader();
         loader.load(
-            'office-chair.glb',
+            'assets/office-chair.glb',
             function(gltf){
                 self.chair = gltf.scene;
                 self.scene.add(gltf.scene);
