@@ -29,7 +29,6 @@ class App{
         this.renderer.outputEncoding = THREE.sRGBEncoding;
         this.renderer.physicallyCorrectLights = true;
         container.appendChild( this.renderer.domElement );
-		this.setEnvironment();
 		
         this.loadingBar = new LoadingBar();
         
@@ -41,25 +40,7 @@ class App{
         this.controls.update();
         
         window.addEventListener('resize', this.resize.bind(this) );
-	}	
-    
-    setEnvironment(){
-        const loader = new RGBELoader().setDataType( THREE.UnsignedByteType );
-        const pmremGenerator = new THREE.PMREMGenerator( this.renderer );
-        pmremGenerator.compileEquirectangularShader();
-        
-        const self = this;
-        
-        loader.load( '../../assets/hdr/venice_sunset_1k.hdr', ( texture ) => {
-          const envMap = pmremGenerator.fromEquirectangular( texture ).texture;
-          pmremGenerator.dispose();
-
-          self.scene.environment = envMap;
-
-        }, undefined, (err)=>{
-            console.error( 'An error occurred setting the environment');
-        } );
-    }
+	}
     
     loadGLTF(){
         const loader = new GLTFLoader( ).setPath('../../assets/');
