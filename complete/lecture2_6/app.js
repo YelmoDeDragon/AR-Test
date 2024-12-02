@@ -78,6 +78,7 @@ class App{
             },
             function(err){
                 console.log('An error happened');
+                console.log(err);
             }
         );
     }
